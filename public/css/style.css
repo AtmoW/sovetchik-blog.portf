@@ -31,6 +31,13 @@
     background-color: #FFCB44;
 }
 
+.title{
+    font-family: 'PT Mono', monospace;
+    color: #FFCB44;
+    font-size: 35px;
+    text-transform: uppercase;
+}
+
 .breadcrumb {
     padding: 0;
     margin: 15px 0px 10px;
@@ -63,6 +70,12 @@
 .post {
     font-family: 'Roboto', sans-serif;
     letter-spacing: 0.1em
+}
+
+.post .post_date p{
+    font-size: 11px;
+    text-align: right;
+    text-indent: 0;
 }
 
 .post__title {
@@ -263,6 +276,10 @@
     margin-top: 50px;
     background-color: #4F6252;
     min-height: 165px
+}
+
+.btn.btn-secondary{
+    background-color: #4F6252;
 }
 
 /*# sourceMappingURL=style.css.map */

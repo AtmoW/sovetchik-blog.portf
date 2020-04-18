@@ -27,77 +27,37 @@ class BlogPostController extends BaseController
      *
      * @return \Illuminate\Http\Response
      */
+    public function new()
+    {
+        $posts = $this->blogPostRepository->getNewWithPaginate();
+        $sortType = "Новые";
+
+        return view('blog.posts.index',compact('posts','sortType'));
+
+    }
+
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
     public function index()
     {
-        $posts = $this->blogPostRepository->getPopularWithPaginate();
+        $posts = $this->blogPostRepository->getPopularWithPaginate();'sortType';
+        $sortType = "Просматриваемые";
 
-        return view('blog.index',compact('posts'));
+        return view('blog.posts.index',compact('posts','sortType'));
 
     }
 
     /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
+     * @param $slug
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
-    public function create()
+    public function show($slug)
     {
-        //
-    }
+        $post = $this->blogPostRepository->getOne($slug);
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        //
+        return view('blog.posts.one',compact('post'));
     }
 }

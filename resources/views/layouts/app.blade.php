@@ -15,6 +15,9 @@
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css?family=PT+Mono|Roboto:300,300i,400,400i,500,500i,700,700i,900,900i&display=swap&subset=cyrillic"
+        rel="stylesheet">
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
@@ -39,9 +42,8 @@
                     <!-- Right Side Of Navbar -->
                     <ul class="nav">
                         <!-- Authentication Links -->
-                        <li><a class="nav-link" href="{{route('blog.posts')}}">Главная</a></li>
+                        <li><a class="nav-link" href="{{route('blog.posts.index')}}">Статьи</a></li>
                         <li><a class="nav-link" href="">Категории</a></li>
-                        <li><a class="nav-link" href="">Новое</a></li>
                         @guest
                             <li class="nav-item">
                                 <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
@@ -83,5 +85,8 @@
     @yield('content')
 </main>
 </div>
+<footer class="footer">
+
+</footer>
 </body>
 </html>

@@ -17,17 +17,51 @@ class BlogPostRepository extends CoreRepository
         return Model::class;
     }
 
+    public function getOne($slug)
+    {
+        $columns = [
+            'user_id',
+            'title',
+            'text',
+            'published_at',
+        ];
+
+        $result = $this->startConditions()->where('slug',$slug)->first();
+
+        return $result;
+    }
+
     public function getPopularWithPaginate()
     {
         $columns = [
+            'slug',
             'title',
             'excerpt',
             'watches',
+            'published_at',
         ];
 
         $result = $this->startConditions()
             ->select($columns)
             ->orderBy('watches', 'DESC')
+            ->paginate(9);
+
+        return $result;
+    }
+
+    public function getNewWithPaginate()
+    {
+        $columns = [
+            'slug',
+            'title',
+            'excerpt',
+            'watches',
+            'published_at',
+        ];
+
+        $result = $this->startConditions()
+            ->select($columns)
+            ->orderBy('published_at', 'DESC')
             ->paginate(9);
 
         return $result;
