@@ -26,6 +26,7 @@ class CreateBlogPostsTable extends Migration
             $table->text('excerpt')->nullable();
 
             $table->text('text');
+            $table->bigInteger('watches')->default('0');
 
             $table->boolean('is_published')->default(false);
             $table->timestamp('published_at')->nullable();

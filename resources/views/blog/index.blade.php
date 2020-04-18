@@ -25,7 +25,7 @@
                         <div class="feedback__stars"><img src="{{asset('images/star-gray.svg')}}" alt=""><span>100.000</span>
                         </div>
                         <div class="feedback__whatch"><img src="{{asset('images/whatches-gray.svg')}}"
-                                                           alt=""><span>100.000</span></div>
+                                                           alt=""><span>{{$post->watches}}</span></div>
                     </div>
                 </div>
 
@@ -33,5 +33,19 @@
 
         </div>
     </div>
+        <div class="row justify-content-center">
+            @if($posts->total() > $posts->count())
+                <br>
+                <div class="row justify-content-center">
+                    <div class="col-md-12">
+                        <div class="card">
+                            <div class="card-body">
+                                {{$posts->links()}}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            @endif
+        </div>
     </section>
 @endsection

@@ -4,10 +4,24 @@ namespace App\Http\Controllers\Blog;
 
 use App\Http\Controllers\Controller;
 use App\Models\Blog\BlogPost;
+use App\Http\Controllers\Blog\BaseController;
 use Illuminate\Http\Request;
+use App\Repositories\Blog\BlogPostRepository;
 
-class BlogPostController extends Controller
+class BlogPostController extends BaseController
 {
+    /**
+     * @var BlogPostRepository;
+     */
+    private $blogPostRepository;
+
+    public function __construct()
+    {
+        parent::__construct();
+
+        $this->blogPostRepository = app(BlogPostRepository::class);
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -15,7 +29,7 @@ class BlogPostController extends Controller
      */
     public function index()
     {
-        $posts = BlogPost::all();
+        $posts = $this->blogPostRepository->getPopularWithPaginate();
 
         return view('blog.index',compact('posts'));
 
