@@ -7,6 +7,7 @@ use App\Models\Blog\BlogPost;
 use App\Http\Controllers\Blog\BaseController;
 use Illuminate\Http\Request;
 use App\Repositories\Blog\BlogPostRepository;
+use App\Events\Blog\PostHasViewed;
 
 class BlogPostController extends BaseController
 {
@@ -57,7 +58,7 @@ class BlogPostController extends BaseController
     public function show($slug)
     {
         $post = $this->blogPostRepository->getOne($slug);
-
+        event(new PostHasViewed($post));
         return view('blog.posts.one',compact('post'));
     }
 }

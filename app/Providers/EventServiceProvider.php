@@ -18,6 +18,9 @@ class EventServiceProvider extends ServiceProvider
         Registered::class => [
             SendEmailVerificationNotification::class,
         ],
+        'App\Events\Blog\PostHasViewed' => [
+            'App\Listeners\Blog\Counter',
+        ],
     ];
 
     /**
@@ -25,6 +28,7 @@ class EventServiceProvider extends ServiceProvider
      *
      * @return void
      */
+
     public function boot()
     {
         parent::boot();
