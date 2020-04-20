@@ -67,9 +67,10 @@
     color: #919191
 }
 
-.post {
+.post-solo {
     font-family: 'Roboto', sans-serif;
-    letter-spacing: 0.1em
+    letter-spacing: 0.1em;
+    height: 65vh;
 }
 
 .post .post_date p{

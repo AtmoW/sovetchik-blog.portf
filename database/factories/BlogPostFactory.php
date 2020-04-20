@@ -11,7 +11,10 @@ $factory->define(\App\Models\Blog\BlogPost::class, function (Faker $faker) {
     $isPublished = rand(1,5)>1;
     $createdAt = $faker->dateTimeBetween('-3 months',
         '-2 month');
-    $watches = rand(3,1000);
+    $watches = 0;
+    if($isPublished){
+        $watches = rand(1,1000);
+    }
     $data=[
         'category_id' => rand(1, 11),
         'user_id' => (rand(1,5)==5)? 1 : 2,

@@ -33,7 +33,7 @@
                                 </div>
                             </div>
 
-                            <div class="col-4 post_date"><p>{{\Illuminate\Support\Carbon::parse($post->published_at)->format('d-m-yy H:m') }}</p></div>
+                            <div class="col-4 post_date"><p>{{\Illuminate\Support\Carbon::parse($post->published_at)->format('d-m-yy | H:m') }}</p></div>
                         </div>
                         <div class="post__sep"></div>
                         <div class="post__text"><p>{{$post->excerpt}}</p><img src="{{asset('images/post.png')}}" alt="">

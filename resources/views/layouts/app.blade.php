@@ -71,6 +71,9 @@
                                           style="display: none;">
                                         @csrf
                                     </form>
+
+
+                                    <a class="dropdown-item" href="">Профиль</a>
                                 </div>
                             </li>
                         @endguest

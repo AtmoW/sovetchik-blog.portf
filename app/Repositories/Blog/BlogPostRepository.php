@@ -24,6 +24,7 @@ class BlogPostRepository extends CoreRepository
             'title',
             'text',
             'published_at',
+            'watches',
         ];
 
         $result = $this->startConditions()->where('slug',$slug)->first();
