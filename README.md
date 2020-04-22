@@ -1,1 +1,1 @@
-# sovetchik.local
+# sovetchik-blog.portf
