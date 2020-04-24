@@ -32,6 +32,36 @@ class BlogPostRepository extends CoreRepository
         return $result;
     }
 
+    public function getAllWithPaginate($published = true)
+    {
+        $columns = [
+            'slug',
+            'title',
+            'excerpt',
+            'user_id',
+            'category_id',
+            'created_at',
+            'is_published'
+        ];
+
+        if($published){
+            $result = $this->startConditions()
+                ->select($columns)
+                ->orderBy('created_at', 'DESC')
+                ->paginate(15);
+        }
+        else{
+            $result = $this->startConditions()
+                ->select($columns)
+                ->where('is_published','=','0')
+                ->orderBy('created_at', 'DESC')
+                ->paginate(15);
+        }
+
+        return $result;
+    }
+
+
     public function getPopularWithPaginate()
     {
         $columns = [

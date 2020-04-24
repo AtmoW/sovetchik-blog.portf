@@ -42,7 +42,7 @@ class BlogPostController extends BaseController
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index($sort="popular")
     {
         $posts = $this->blogPostRepository->getPopularWithPaginate();'sortType';
         $sortType = "Просматриваемые";

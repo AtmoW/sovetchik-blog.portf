@@ -18,11 +18,12 @@ Route::redirect('/', '/blog/posts');
 Auth::routes();
 Route::group(
     [
-        'prefix' => 'admin',
+        'prefix' => 'admin/blog',
         'middleware' => ['auth', 'can:admin-panel'],
+        'namespace'=>'Admin\Blog'
     ],
     function () {
-        Route::get('home', 'HomeController@index')->name('home');
+        Route::resource('posts','BlogPostController')->names('admin.blog.posts');
     }
 );
 
