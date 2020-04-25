@@ -20,15 +20,26 @@ Route::group(
     [
         'prefix' => 'admin/blog',
         'middleware' => ['auth', 'can:admin-panel'],
-        'namespace'=>'Admin\Blog'
+        'namespace' => 'Admin\Blog'
     ],
     function () {
-        Route::resource('posts','BlogPostController')->names('admin.blog.posts');
+        Route::resource('posts', 'BlogPostController')->names('admin.blog.posts')->except([
+            'show'
+        ]);
+
+        Route::group(
+            [
+                'prefix' => 'posts'
+            ],
+            function () {
+                Route::get('not-published', 'BlogPostController@notPublished')->name('blog.posts.not-published');
+            }
+        );
     }
 );
 
 
-Route::group(['namespace'=>'Blog', 'prefix'=>'blog'],function(){
-  Route::resource('posts','BlogPostController')->names('blog.posts');
-    Route::get('new','BlogPostController@new')->name('blog.posts.new');
+Route::group(['namespace' => 'Blog', 'prefix' => 'blog'], function () {
+    Route::resource('posts', 'BlogPostController')->names('blog.posts');
+    Route::get('new', 'BlogPostController@new')->name('blog.posts.new');
 });

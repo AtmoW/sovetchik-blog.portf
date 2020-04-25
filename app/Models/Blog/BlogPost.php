@@ -14,12 +14,14 @@ class BlogPost extends Model
 
     protected $fillable = [
         'title',
+        'category_id',
         'slug',
         'text',
         'excerpt',
         'published_at',
         'is_published' ,
-        'user_id'
+        'user_id',
+        'image_path'
     ];
 
     /**

@@ -6,7 +6,7 @@
     min-height: 80px;
 }
 
-.nav-link {
+.my-nav-link {
     font-family: 'PT Mono', monospace;
     font-size: 15px;
     line-height: 17px;
@@ -18,14 +18,14 @@
     position: relative;
 }
 
-.nav-link:hover {
+.my-nav-link:hover {
     color: #FFCB44;
 }
 
-.nav-link:hover::before {
-    top: 18px;
+.my-nav-link:hover::before {
+    top: 25px;
     content: '';
-    width: 100%;
+    width: 75%;
     height: 1px;
     position: absolute;
     background-color: #FFCB44;

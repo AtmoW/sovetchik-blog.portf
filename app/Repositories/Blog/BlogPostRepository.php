@@ -35,7 +35,7 @@ class BlogPostRepository extends CoreRepository
     public function getAllWithPaginate($published = true)
     {
         $columns = [
-            'slug',
+            'id',
             'title',
             'excerpt',
             'user_id',
